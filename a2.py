@@ -25,7 +25,7 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
         # your job is to fill out the body of this loop
 
         # you should delete the following line
-        return ["Not done yet :)"]
+      
 
         # 1) if we reached the end of the pattern but not source
         if pind == len(pattern) and sind < len(source): 
@@ -44,7 +44,18 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
                 return result
             else: # not the last element of pattern
                 pass
-            
+                pind += 1
+                slocation = sind
+                while pattern[pind] != source[sind]:
+                    sind += 1
+
+                    if sind == len(source):
+                        return None
+
+                # print(sind, slocation)
+                result.append(" ".join(source[slocation:sind]))
+                # print(result)
+
         # 3) if we reached the end of the source but not the pattern
         elif sind == len(source):
             print("reached end of cource, but not pattern - return  none")
